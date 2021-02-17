@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html >
+   <head>
+      <title>
+         Login
+      </title>
+      <link href="{% static 'FTS.css' %}" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="{% static 'css/teacher.css' %}" type="text/css" />
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+   </head>
+   <body class="hold-transition login-page">
+      <div class="login-box">
+         <div class="box box-info loginbox">
+            <div class="box-body box-profile">
+               <form method="post" action="home" id="login">
+                  {% csrf_token %}
+                  <div class="col-sm-12 ">
+                     {% if error %}
+                     <div class="error" align="center" style="color: red">{{error}}</div>
+                     {% endif %}
+                     <div class="title">Email ID </div>
+                     <input name="username" type="text" autocomplete="off" id="txtboxemailid" class="formfield form-control borderremove" placeholder="Email ID" />
+                     <span id="RequiredFieldValidator1" class="errormessage" style="display:none;">*</span>
+                     <span id="RegularExpressionValidator2" class="errormessage" style="display:none;">Please enter the correct Email ID</span>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="title">Password </div>
+                     <input name="password" type="password" autocomplete="off" id="txtboxpassword" class="formfield form-control borderremove" placeholder="Password" />
+                     <span id="RequiredFieldValidator2" class="errormessage" style="display:none;">*</span>
+                  </div>
+                  <div class="box-footer" style="border-top: 0px; margin: 0px 5px;">
+                     <div class="row">
+                        <div class="col-sm-12 margin-top1">
+                           <input type="submit" name="btnLogin" value="submit" id="btnLogin" class="btn btn-info pull-right update borderremove" />
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
